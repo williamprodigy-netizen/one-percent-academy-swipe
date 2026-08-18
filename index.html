@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — 1 Percent Academy — Jacqueline</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">1 Percent Academy Jacqueline <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="on">Overview</a><a href="analysis.html" class="">Analysis</a><a href="pages.html" class="">Funnel pages</a><a href="copybank.html" class="">Copy bank</a><a href="webinar.html" class="">Webinar slides</a><a href="transcripts.html" class="">Transcripts</a><a href="videos.html" class="">Video library</a><a href="board.html" class="">Wired board</a><a href="decks.html" class="">Decks</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Competitor swipe · captured 3 August 2026</div>
+<h1>1 Percent Academy — Jacqueline</h1><p>Amazon FBA sold to women through a free &ldquo;live&rdquo; masterclass that is a recorded 1h42m file. Structurally this is UGC World in a different vertical. Two mechanics are worth taking: a money question on the registration form itself, and two entire pages built for nothing but show rate. The price is never stated anywhere &mdash; not on a page, not on a slide, not in 19,078 words of webinar.</p></div>
+<section><div class="grid g4"><div class="stat"><div class="n">never stated</div><div class="l">Price</div></div><div class="stat"><div class="n">1h 42m 49s</div><div class="l">Webinar</div></div><div class="stat"><div class="n">19,078</div><div class="l">Words</div></div><div class="stat"><div class="n">174</div><div class="l">Slides kept</div></div><div class="stat"><div class="n">9</div><div class="l">Funnel pages</div></div><div class="stat"><div class="n">4</div><div class="l">Opt-in variants</div></div><div class="stat"><div class="n">5</div><div class="l">Budget bands</div></div><div class="stat"><div class="n">2</div><div class="l">Show-rate pages</div></div></div></section>
+<section><h2 class="sec">The offer</h2><div class="tablewrap"><table><tr><th>Product</th><td>1% Academy &mdash; Amazon FBA mentorship for women</td></tr><tr><th>Mechanism</th><td>&ldquo;The Premium Brand Method&rdquo; &mdash; buy low-cost products, customise and brand them, rank on page 1</td></tr><tr><th>Price</th><td><b>never stated</b>. Two costs are named &mdash; enrolment and inventory &mdash; then blurred together and pushed to the call</td></tr><tr><th>Capital framing</th><td>&ldquo;Some women come in with $4,000, some come in with $10,000 and we help both of them if we can&rdquo; (75:38)</td></tr><tr><th>Application bands</th><td>&lt;$5,000 &middot; $5&ndash;8k &middot; $8&ndash;12k &middot; $12&ndash;15k &middot; $15,000+</td></tr><tr><th>Time to first product</th><td>4&ndash;5 months, stated in the FAQ</td></tr><tr><th>Time commitment</th><td>1&ndash;2 hours a day, &ldquo;2 hours maximum&rdquo;</td></tr><tr><th>Bonuses</th><td>Accountability coach, 100 vetted products, done-for-you listing creation, 3 weekly live calls, A&ndash;Z course lifetime access, China sourcing partners</td></tr><tr><th>Scarcity bonus</th><td>First 20 women get 3 months of the product-research software free, framed as $1,100 of value at $97/mo</td></tr><tr><th>Guarantee</th><td>none offered. &ldquo;If you follow everything I outline it will work&rdquo;</td></tr></table></div></section>
+<section><h2 class="sec">What matters</h2><div class="grid g2"><div class="card"><h3>The money question is on the registration form</h3><p>The opt-in form carries a required dropdown &mdash; <b>&ldquo;How much could you comfortably invest towards your Amazon Store Today?&rdquo;</b> with two options, Under $4,000 and $4,000+. It posts to a Zapier catch hook before WebinarJam ever sees the lead. They know a registrant's capital before she has watched a single minute. Caveat: the form is present in the markup of every variant but did not render on the live pages we captured, so treat it as their intent rather than their current state.</p></div><div class="card"><h3>Two entire pages exist only to raise show rate</h3><p>Nothing is sold on either. The thank-you page runs a 2m55s primer video, then teaches inbox deliverability out loud &mdash; &ldquo;star this email and move it to your primary inbox&rdquo; &mdash; then add-to-calendar, then an IG follow, then a YouTube video to watch beforehand. The confirmation page adds a 5-point class checklist: desktop not phone, block 90 minutes, take notes and post them tagging both handles, engage live (&ldquo;Attention = Retention&rdquo;), screenshot and share to your IG story.</p></div><div class="card"><h3>The price is never said, anywhere</h3><p>Not on a page, not on a slide, not in 19,078 transcribed words. At 75:09 she names two costs, programme and inventory, then immediately blurs them into one capital number and hands it to the call. The whole value-reframe stack that follows &mdash; a luxury vacation, a Chanel bag, college tuition &mdash; anchors against spending she assumes the avatar already does, without ever naming her own number.</p></div><div class="card"><h3>Show-rate commitment is a forced choice, in writing</h3><p>Before a time can be picked the application states <b>&ldquo;we DO NOT accept cancellations or reschedules&rdquo;</b> and then makes her choose between &ldquo;I will choose a time and date that best fits my calendar and promise to show up on time&rdquo; and &ldquo;No I will not show up to my call on time&rdquo;. There is no neutral option.</p></div><div class="card"><h3>The class is the top of their DM funnel</h3><p>At 85:17, an hour and 25 minutes in, she tells everyone still watching to DM the word <b>resource</b> on Instagram for a free guide. Attendance converts into inbound DM volume a human team can work. The lead magnet is deliberately withheld until deep into the runtime, so it doubles as a stay-to-the-end incentive.</p></div><div class="card"><h3>The application disqualifies out loud</h3><p>Typeform Df2qD9dy has 14 jump rules and two terminal screens, one literally titled <b>&ldquo;DQ Leads&rdquo;</b> and one <b>&ldquo;Qualified lead&rdquo;</b>. Under 18, unwilling to commit 3 months, or unable to fund all route to the dead end.</p></div><div class="card"><h3>The funnel is visibly half-maintained</h3><p>The WebinarJam registration resolves to w1505 and then bounces to 1percentacademy.com/free-webi, a page that no longer exists and redirects to clickfunnels.com. Variant B's countdown reads 00:00:00. The replay page asserts a 72-hour expiry over a timer that is also 00:00:00. The thank-you page still says Copyright 2025 while the opt-in says 2026.</p></div></div></section>
+<section><h2 class="sec">Funnel path</h2><div class="tablewrap"><table>
+<tr><th>#</th><th>Step</th><th>URL</th><th>Note</th></tr><tr><td><b>1</b></td><td>Opt-in &mdash; IG link in bio</td><td><code>1percentacademy.com/optin-6405118817853424&hellip;</code></td><td>The page Will was sent. &ldquo;Discover How Ambitious Girls Are Buying Back Their Time by Creating Premium Brands on Amazon.&rdquo; Evergreen countdown, &ldquo;Trusted By Over 2,347 Women&rdquo;, 150 spots.</td></tr><tr><td><b>2</b></td><td>Opt-in &mdash; variant B</td><td><code>1percentacademy.com/optin</code></td><td>Income + mechanism instead of identity: &ldquo;How Boss Women Are Building $10K/Mo Amazon FBA Businesses As Complete Beginners Using the Premium Brand Method.&rdquo; Darker buttons, dead countdown.</td></tr><tr><td><b>3</b></td><td>Opt-in &mdash; root and /masterclass</td><td><code>1percentacademy.com/</code></td><td>Two further live variants. /masterclass is byte-identical to the IG page.</td></tr><tr><td><b>4</b></td><td>Thank-you page</td><td><code>1percentacademy.com/thank-you</code></td><td>Primer video, inbox training, calendar add, IG follow, YouTube pre-work.</td></tr><tr><td><b>5</b></td><td>Confirmation page</td><td><code>1percentacademy.com/confirmation</code></td><td>The 5-point class checklist and the private live-room link (event.webinarjam.com/go/live/105/&hellip;). Follows both @jacquelinevagar and @sal_habibi.</td></tr><tr><td><b>6</b></td><td>The class</td><td><code>WebinarJam</code></td><td><span class="tag bad">pre-recorded</span> 1h42m49s Wistia file, advertised as &ldquo;FREE LIVE MASTERCLASS: THURSDAY @ 2PM EST&rdquo;</td></tr><tr><td><b>7</b></td><td>Replay page</td><td><code>1percentacademy.com/replay</code></td><td>&ldquo;This Replay Expires In 72 Hours&rdquo; over a 00:00:00 timer. Full webinar, then the application.</td></tr><tr><td><b>8</b></td><td>Application</td><td><code>1percentacademy.com/application</code></td><td>Typeform Df2qD9dy. Fomo social-proof widget fires over the top. Never submitted.</td></tr></table></div></section>
+<footer>Captured 3 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/1PERCENT_ACADEMY_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>

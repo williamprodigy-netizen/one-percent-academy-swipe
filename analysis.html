@@ -1,0 +1,189 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analysis — 1 Percent Academy — Jacqueline</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--panel:#f8fafc;--bg:#eef0f3;
+ --accent:#4f46e5;--good:#059669;--warn:#ea580c;--bad:#9f1239}
+@media(prefers-color-scheme:dark){:root{--ink:#e8eaed;--muted:#9aa3b2;--line:#2a3140;
+ --panel:#151a23;--bg:#0d1117;--accent:#818cf8}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+ -webkit-font-smoothing:antialiased;line-height:1.55}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.topin{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;height:60px}
+.brand{font-size:15px;font-weight:600;white-space:nowrap}
+.brand span{color:var(--muted);font-weight:400}
+nav.main{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none}
+nav.main::-webkit-scrollbar{display:none}
+nav.main a{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap;
+ padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--ink)}
+nav.main a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.hero{padding:48px 0 26px}
+.kick{font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.hero h1{font-size:40px;margin-bottom:14px;line-height:1.15}
+.hero p{font-size:17px;color:var(--muted);max-width:820px}
+section{padding:26px 0}
+h2.sec{font-size:22px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h3{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;color:var(--muted)}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat .n{font-size:26px;font-weight:600;letter-spacing:-.03em}
+.stat .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;
+ border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.good{color:var(--good);border-color:var(--good)}
+.tag.warn{color:var(--warn);border-color:var(--warn)}
+.tag.bad{color:var(--bad);border-color:var(--bad)}
+figure{background:var(--panel);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+figure img{width:100%;display:block;background:#000;cursor:zoom-in}
+figcaption{padding:8px 10px;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+figcaption b{color:var(--ink);font-weight:600}
+details{background:var(--panel);border:1px solid var(--line);border-radius:9px;margin-bottom:9px}
+summary{padding:12px 15px;cursor:pointer;font-size:14px;font-weight:500;list-style:none;
+ display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+summary::-webkit-details-marker{display:none}
+summary .meta{font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details .body{padding:0 15px 15px;font-size:14.5px;line-height:1.72;color:var(--ink)}
+details .body p{margin-bottom:12px}
+.ts{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;font-size:12.5px}
+.searchbar{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:9px;
+ background:var(--panel);color:var(--ink);font-size:14.5px;margin-bottom:14px;font-family:inherit}
+.note{border-left:3px solid var(--accent);padding:11px 15px;background:var(--panel);
+ border-radius:0 9px 9px 0;font-size:14px;margin-bottom:13px}
+.note.warn{border-left-color:var(--warn)}
+footer{padding:36px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:34px}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+ justify-content:center;z-index:99;cursor:zoom-out;padding:20px}
+#lb img{max-width:100%;max-height:92vh;object-fit:contain}
+#lb .cap{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:13px;padding:0 20px}
+</style></head><body>
+<header class="top"><div class="topin">
+<div class="brand">1 Percent Academy Jacqueline <span>swipe</span></div>
+<nav class="main"><a href="index.html" class="">Overview</a><a href="analysis.html" class="on">Analysis</a><a href="pages.html" class="">Funnel pages</a><a href="copybank.html" class="">Copy bank</a><a href="webinar.html" class="">Webinar slides</a><a href="transcripts.html" class="">Transcripts</a><a href="videos.html" class="">Video library</a><a href="board.html" class="">Wired board</a><a href="decks.html" class="">Decks</a></nav></div></header>
+<div class="wrap">
+<div class="hero"><div class="kick">Teardown</div><h1>Analysis</h1>
+<p>What they do, why it works, and what is worth taking.</p></div>
+<section>
+<div class="note warn"><b>Read this first.</b> The masterclass advertised as
+&ldquo;FREE LIVE &middot; THURSDAY @ 2PM EST&rdquo; is a recorded 1h42m49s file served from
+Wistia. The scarcity around it &mdash; 150 spots, &ldquo;first 20 women&rdquo;, the 72-hour
+replay expiry &mdash; is a production choice, not a constraint.</div>
+
+<h2 class="sec">Why this one matters to us</h2>
+<p>Different vertical, same machine. Female avatar with no experience, a
+buy-back-your-time promise, a named mechanism, a free class, and a phone call at the end.
+The two mechanics below are the reason it is in the file &mdash; both attack problems we
+actually have, and neither depends on selling Amazon FBA.</p>
+
+<h2 class="sec">The structure</h2>
+<div class="tablewrap"><table>
+<tr><th>Time</th><th>Beat</th><th>What she is doing</th></tr>
+<tr><td>00:35</td><td>Promise</td><td>&ldquo;How to actually make $10,000 a month as a complete beginner in 2026&rdquo;</td></tr>
+<tr><td>14:19</td><td>Objection sweep</td><td>Cost versus other businesses, then competition, then tariffs &mdash; pre-empted before teaching</td></tr>
+<tr><td>23:56</td><td>Capital expectation</td><td>&ldquo;$3,000 to $5,000 to launch your first product the right way&rdquo; &mdash; the number that later gets blended with the programme fee</td></tr>
+<tr><td>31:24</td><td>Girl math</td><td>A single worked P&amp;L: $35 product, 20 units/day, $8,400 monthly profit</td></tr>
+<tr><td>33:41</td><td>Lifestyle translation</td><td>Each profit tier converted into an object &mdash; Louboutins, the Maldives, a Chanel bag, a G Wagon</td></tr>
+<tr><td>48:00</td><td>Contrast</td><td>The average American salary against her one-week screenshots</td></tr>
+<tr><td>61:20</td><td>Proof roll</td><td>Named members, each with a number and a timeframe</td></tr>
+<tr><td>73:39</td><td>Stack</td><td>Accountability coach, 100 products, DFY listing, live calls, lifetime course</td></tr>
+<tr><td><b>75:09</b></td><td><b>The money non-answer</b></td><td>Names two costs, blurs them, hands the number to the call</td></tr>
+<tr><td>76:03</td><td>Reframe stack</td><td>Vacation, handbag, tuition &mdash; all spending she assumes the avatar already does</td></tr>
+<tr><td>78:54</td><td>Scarcity bonus</td><td>First 20 women get the software free, framed at $1,100</td></tr>
+<tr><td>79:37</td><td>Scam objection</td><td>Names it out loud, then goes straight into the close</td></tr>
+<tr><td>80:00</td><td>Visualisation</td><td>A three-minute guided eyes-closed exercise ending in &ldquo;would she invest in herself?&rdquo;</td></tr>
+<tr><td>83:21</td><td>FAQ</td><td>Country eligibility, hours per day, time to launch, what if it fails, logistics</td></tr>
+<tr><td>85:17</td><td>DM ask</td><td>&ldquo;DM me the word <b>resource</b> on Instagram&rdquo;</td></tr>
+<tr><td>86:05</td><td>Member interviews</td><td>Two recorded member calls play out to the end</td></tr>
+</table></div>
+
+<h2 class="sec">Worth taking</h2>
+<div class="grid g2">
+<div class="card"><h3>Qualify for money at registration, not at application</h3>
+<p>One required dropdown on the opt-in, two bands, posted to their own endpoint before the
+webinar platform sees the lead. Every registrant carries a capital tag from minute zero, which
+means the follow-up, the setter queue and the ad optimisation can all be sorted by it. We
+currently learn budget far later, and only for the people who make it to a call.</p></div>
+<div class="card"><h3>Spend two pages on attendance</h3>
+<p>Nothing is sold on the thank-you or confirmation pages. They teach inbox deliverability by
+name, demand desktop over phone, ask for a 90-minute block, and convert the registrant into a
+public commitment via an IG story. Show rate is our number-one bottleneck and this is the
+cheapest version of attacking it we have seen.</p></div>
+<div class="card"><h3>Make the show-up promise a forced choice</h3>
+<p>&ldquo;We DO NOT accept cancellations or reschedules&rdquo;, then two options with no neutral
+middle. Whether or not they enforce it, the lead has typed the commitment before she gets a
+slot.</p></div>
+<div class="card"><h3>Withhold the lead magnet until 85 minutes in</h3>
+<p>The free guide is only announced near the end and only via an Instagram DM. It buys retention
+to the close and pours warm inbound into a channel a human can work.</p></div>
+<div class="card"><h3>Translate profit into objects, not percentages</h3>
+<p>$280/day becomes a pair of Louboutins; $8,400/month becomes a Chanel bag. The arithmetic is
+ordinary; the translation is what makes it land for this avatar.</p></div>
+<div class="card"><h3>Name the scam objection yourself</h3>
+<p>&ldquo;I don't know if this is a scam &hellip; I've been burned in the past&rdquo; &mdash; said
+in her own voice, immediately before the close, rather than left for the setter.</p></div>
+</div>
+
+<h2 class="sec">Not worth taking</h2>
+<p>The fake-live framing and the dead timers. The replay page asserts a 72-hour expiry over a
+counter reading 00:00:00, and the WebinarJam registration path dead-ends on a page that no
+longer exists. Anyone who checks can see it, and the whole funnel is built for an avatar who is
+already scanning for reasons to distrust &mdash; she says so herself at 79:37.</p>
+<p>The blended price is a genuine trade-off rather than a clean win. Refusing to name a number
+protects the call, but it also means every booked call spends its first minutes doing price
+discovery, and the application's own budget bands (&lt;$5k through $15k+) leak the range anyway.</p>
+
+<h2 class="sec">Open questions</h2>
+<ul class="ul">
+<li>What the Zapier hook does with the budget answer &mdash; route, prioritise, or exclude &mdash;
+is not observable from outside.</li>
+<li>The registration form did not render on any live variant we captured, so we cannot tell
+whether the money gate is currently running or is leftover markup.</li>
+<li>No email sequence has been captured yet. The research identity has not opted in, because the
+form requires a phone number and we do not have a research number.</li>
+<li>@sal_habibi appears alongside @jacquelinevagar on the confirmation page. Second operator,
+probably the one running traffic, not yet investigated.</li>
+</ul>
+</section>
+<footer>Captured 3 August 2026. Evidence in <code>~/UNDERGROUND_FUNNELS_SSOT</code>
+and <code>~/Downloads/1PERCENT_ACADEMY_Swipe</code>. Built with the <code>/swipe</code> skill.<br>
+Competitor research. Not for redistribution.</footer></div>
+<div id="lb"><img alt=""><div class="cap"></div></div>
+<script>
+document.addEventListener('click',function(e){
+  if(e.target.tagName==='IMG'&&e.target.closest('figure')){
+    var lb=document.getElementById('lb');
+    lb.querySelector('img').src=e.target.dataset.full||e.target.src;
+    var fc=e.target.closest('figure').querySelector('figcaption');
+    lb.querySelector('.cap').textContent=fc?fc.textContent.trim():'';
+    lb.style.display='flex';
+  } else if(e.target.closest('#lb')){document.getElementById('lb').style.display='none';}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')document.getElementById('lb').style.display='none';
+});
+function wireSearch(id,sel){
+  var b=document.getElementById(id); if(!b)return;
+  b.addEventListener('input',function(){
+    var q=b.value.toLowerCase();
+    document.querySelectorAll(sel).forEach(function(el){
+      el.style.display = !q || el.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none';
+    });
+  });
+}
+wireSearch('tsearch','details.tr');
+wireSearch('ssearch','figure.sl');
+</script></body></html>
